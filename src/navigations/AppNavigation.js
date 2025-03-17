@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/Home/HomeScreen';
 import CategoriesScreen from '../screens/Categories/CategoriesScreen';
 import RecipeScreen from '../screens/Recipe/RecipeScreen';
@@ -9,10 +9,12 @@ import RecipesListScreen from '../screens/RecipesList/RecipesListScreen';
 import IngredientScreen from '../screens/Ingredient/IngredientScreen';
 import SearchScreen from '../screens/Search/SearchScreen';
 import IngredientsDetailsScreen from '../screens/IngredientsDetails/IngredientsDetailsScreen';
-import { Ionicons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons';
+
+import ApiTest from "../screens/ApiTest/ApiTest";
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator(); 
+const Tab = createBottomTabNavigator();
 
 function MainNavigator() {
   return (
@@ -51,34 +53,42 @@ function BottomTabs() {
             iconName = focused ? 'search' : 'search-outline';
           }
 
-       
+
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'blue', 
+        tabBarActiveTintColor: 'blue',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          height: 60, 
+          height: 60,
           paddingBottom: 5,
         },
       })}
     >
       {}
-     
+
       <Tab.Screen
         name="Categories"
         component={CategoriesScreen}
         options={{ headerShown: false }}
       />
-       <Tab.Screen
+        <Tab.Screen
         name="Home"
         component={MainNavigator}
-        options={{ headerShown: false }} 
+        options={{ headerShown: false }}
       />
       <Tab.Screen
         name="Search"
         component={SearchScreen}
         options={{ headerShown: false }}
       />
+      <Tab.Screen
+        name={"SFAFA"}
+        component={ApiTest}
+        options={{ headerShown: false }}
+        />
+
+
+
     </Tab.Navigator>
   );
 }
